@@ -1,10 +1,15 @@
 package SelenideUI;
 
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.url;
+import static org.testng.Assert.assertEquals;
 
 public class NewOwnerPage {
     String firstNameLocator = "firstName";
@@ -12,6 +17,21 @@ public class NewOwnerPage {
     String addressLocator = "address";
     String cityLocator = "city";
     String telephoneLocator = "telephone";
+    String submitBtn = "[type='submit']";
+
+    static {
+        Configuration.baseUrl = "http://localhost:8000/petclinic";
+    }
+    @Step("Opening NewOwners page")
+    public NewOwnerPage openPage() {
+        open("/owners/add");
+        return this;
+    }
+    @Step("Checking the current URL")
+    public void assertUrl(String url){
+        String currentUrl = url();
+        assertEquals(currentUrl, url);
+    }
 
     @Step("Entering of the first name")
     public void setFirstName(String firstName) {

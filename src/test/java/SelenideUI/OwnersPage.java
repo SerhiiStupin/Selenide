@@ -1,8 +1,10 @@
 package SelenideUI;
 
+import Owner.Owner;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -42,9 +44,30 @@ public class OwnersPage {
         for (WebElement fullName : elements) {
             owners.add(fullName.getText());
         }
-
         return owners;
     }
+
+    @Step("Add new owner button click")
+    public NewOwnerPage clickAddOwnerBtn() {
+        $(By.xpath("//*[text()='Add Owner']")).click();
+        return new NewOwnerPage();
+    }
+
+    @Step("Getting a list of owners")
+    public ElementsCollection ownersList(){
+        return $$(By.xpath("//tbody/tr"));
+    }
+
+    @Step("Click on owner's name")
+    public OwnerInformationPage openOwnerInfo(String fullName) {
+        $(By.xpath("//a[text()='"+fullName+"']")).click();
+        return new OwnerInformationPage();
+    }
+    @Step("New owner button click")
+    public void newOwner(){
+        $(By.xpath("//tr[last()]/td[1]/a")).click();
+    }
+}
 
 //    public List<Owner> getOwnersList() {
 //        List<Owner> owners = new ArrayList<>();
@@ -57,20 +80,9 @@ public class OwnersPage {
 //        }
 //        return owners;
 //    }
-
-    //    public NewOwnerPage clickAddOwnerBtn() {
-//        WebElement addOwnerBtn = driver.findElement(By.xpath("//*[text()='Add Owner']"));
-//        addOwnerBtn.click();
-//        return new NewOwnerPage(driver);
-//    }
-    @Step("Add new owner button click")
-    public NewOwnerPage clickAddOwnerBtn() {
-        $(By.xpath("//*[text()='Add Owner']")).click();
-        return new NewOwnerPage();
-    }
 //    @Step("New owner data setting")
 //    private Owner createOwner(WebElement userRow) {
-//        com.auto.PageObjectTests.Owner owner = new com.auto.PageObjectTests.Owner();
+//        Owner owner = new Owner();
 //        String fullName = userRow.findElement(By.xpath("./td/a")).getText();
 //        String[] fullNameArray = fullName.split(" ");
 //        if (fullNameArray.length > 1) {
@@ -87,21 +99,6 @@ public class OwnersPage {
 //        if(!pets.isEmpty()) {
 //            owner.setPets(pets);
 //        }
-//
 //        return (Owner) owner;
 //    }
-    @Step("Getting a list of owners")
-    public ElementsCollection ownersList(){
-        return $$(By.xpath("//tbody/tr"));
-    }
-
-    @Step("Click on owner's name")
-    public OwnerInformationPage openOwnerInfo(String fullName) {
-        $(By.xpath("//a[text()='"+fullName+"']")).click();
-        return new OwnerInformationPage();
-    }
-    @Step("New owner button click")
-    public void newOwner(){
-        $(By.xpath("//tr[last()]/td[1]/a")).click();
-    }
-}
+//}

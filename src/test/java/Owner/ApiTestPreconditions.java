@@ -4,11 +4,14 @@ import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.parsing.Parser;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
@@ -40,6 +43,12 @@ public class ApiTestPreconditions {
         RestAssured.basePath = "/petclinic/api";
         RestAssured.defaultParser = Parser.JSON;
     }
+    @AfterMethod
+    @Step("Deleting of the created owner by Id")
+    public void deleteOwner() {
+        ownerDeleteTest(owner.getId());
+    }
+
     @Step("Entering new Spec data and save")
         public void specCreationPrec() {
         specialty = new Specialty();
@@ -141,5 +150,19 @@ public class ApiTestPreconditions {
                 .then()
                 .statusCode(204)
                 .log().all();
+    }
+    public void ownerDeleteTest(String ownerId){
+        RestAssured.given()
+                .log().all()
+                .delete(owners + "/{id}", ownerId)
+                .then()
+                .statusCode(204);
+    }
+    public void deletePetTypeByIdAfterTest(int petId) {
+        given()
+                .log().all()
+                .delete(petTypedIdUrl, petId)
+                .then()
+                .statusCode(204);
     }
 }
