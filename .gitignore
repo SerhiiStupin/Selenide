@@ -2,6 +2,8 @@
 *.class
 *.iml
 .allure
+*.xml
+*.idea
 
 # Log file
 *.log
@@ -15,7 +17,7 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-.iml
+*.iml
 .allure
 
 # Package Files #
