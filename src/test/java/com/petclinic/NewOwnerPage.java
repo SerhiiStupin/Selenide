@@ -14,19 +14,19 @@ public class NewOwnerPage {
         $(By.id("lastName")).setValue(name);
         return this;
     }
-public NewOwnerPage setAddress(String name){
+    public NewOwnerPage setAddress(String name){
         $(By.id("address")).setValue(name);
         return this;
     }
-public NewOwnerPage setCity(String name){
+    public NewOwnerPage setCity(String name){
         $(By.id("city")).setValue(name);
         return this;
     }
-public NewOwnerPage setPhone(String name){
+    public NewOwnerPage setPhone(String name){
         $(By.id("telephone")).setValue(name);
         return this;
     }
-        public void cliackAddBtn(){
+     public void cliackAddBtn(){
             $("[type='submit']").shouldBe(Condition.enabled).click();
     }
 }

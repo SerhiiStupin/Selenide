@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Selenide" target="1.5" />
+      <module name="Selenide" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
