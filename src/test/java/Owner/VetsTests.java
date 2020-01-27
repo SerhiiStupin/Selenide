@@ -44,6 +44,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .body("lastName", hasItems("Ortega", "Carter"))
                 .log().all();
     }
+
     @Test(description = "Get incorrect vets")
     @Severity(SeverityLevel.TRIVIAL)
     @Story("Get incorrect vets")
@@ -56,6 +57,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .statusCode(404)
                 .log().all();
     }
+
     @Test(description = "Get created vet by id and lastName")
     @Severity(SeverityLevel.NORMAL)
     @Story("Get created vet by id and lastName")
@@ -70,6 +72,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .body("id", equalTo(vets.getId()))
                 .log().all();
     }
+
     @Test(description = "Get created vet by incorrect id")
     @Severity(SeverityLevel.TRIVIAL)
     @Story("Get created vet by incorrect id")
@@ -82,6 +85,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .statusCode(400)
                 .log().all();
     }
+
     private Vets vetCreation() {
         Vets vets = new Vets();
         List<Specialty> spec = new ArrayList<>();
@@ -107,6 +111,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .then()
                 .statusCode(204);
     }
+
     @Test(description = "Update of the vet")
     @Severity(SeverityLevel.CRITICAL)
     @Story("Update of the vet")
@@ -128,6 +133,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .statusCode(204)
                 .log().all();
     }
+
     @Test(description = "Vet creation with incorrect data")
     @Severity(SeverityLevel.TRIVIAL)
     @Story("Vet creation with incorrect data")
@@ -143,6 +149,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .log().all()
                 .statusCode(400);
     }
+
     @Test(description = "Vet deleting")
     @Severity(SeverityLevel.CRITICAL)
     @Story("Vet deleting")
@@ -155,6 +162,7 @@ public class VetsTests extends ApiTestPreconditions{
                 .then()
                 .statusCode(404);
     }
+
     @Test(description = "Incorrect vet update")
     @Severity(SeverityLevel.CRITICAL)
     @Story("Incorrect vet update")

@@ -14,6 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OwnerTests {
+
     @Test(description = "Checking Owners page")
     @Story("Checking the URL")
     @Severity(SeverityLevel.MINOR)
@@ -63,12 +64,10 @@ public class OwnerTests {
     public void firstNameValidationTests() {
         String firstNameLongValidation = "First name must be at least 2 characters long";
         String requiredFirst = "First name is required";
-
         NewOwnerPage newOwnerPage = new NewOwnerPage();
         newOwnerPage.openPage()
                 .setFirstName("w");
         assertThat(firstNameLongValidation).isEqualTo(newOwnerPage.helpBlock());
-
         newOwnerPage.clearFName();
         assertThat(requiredFirst).isEqualTo(newOwnerPage.helpBlock());
     }
@@ -80,12 +79,10 @@ public class OwnerTests {
     public void lastNameValidationTests() {
         String lastNamelongValidation = "Last name must be at least 2 characters long";
         String requiredLast = "Last name is required";
-
         NewOwnerPage newOwnerPage = new NewOwnerPage();
         newOwnerPage.openPage()
                 .setLastName("p");
         assertThat(lastNamelongValidation).isEqualTo(newOwnerPage.helpBlock());
-
         newOwnerPage.clearLastName();
         assertThat(requiredLast).isEqualTo(newOwnerPage.helpBlock());
     }
@@ -110,7 +107,6 @@ public class OwnerTests {
     @TmsLink("owners.com")
     public void cityValidationTest() {
         String city = "City is required";
-
         NewOwnerPage newOwnerPage = new NewOwnerPage();
         newOwnerPage.openPage()
                 .setCity("-");
@@ -125,12 +121,10 @@ public class OwnerTests {
     public void telephoneTest() {
         String telephone ="Phone number only accept digits";
         String telephoneRequired = "Phone number is required";
-
         NewOwnerPage newOwnerPage = new NewOwnerPage();
         newOwnerPage.openPage()
                 .setTelephone(" ");
         assertThat(telephone).isEqualTo(newOwnerPage.helpBlock());
-
         newOwnerPage.clearTelephone();
         assertThat(telephoneRequired).isEqualTo(newOwnerPage.helpBlock());
     }

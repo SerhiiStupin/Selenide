@@ -4,8 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import static com.codeborne.selenide.Selenide.$;
+import static org.openqa.selenium.Keys.BACK_SPACE;
 
 public class NewVeterPage {
     @Step("Setting vet's data")
@@ -16,25 +16,19 @@ public class NewVeterPage {
     }
     @Step("Setting first name")
     public void setFirstName(String firstName){
-        WebElement nameField = firstNameLocator();
-        nameField.clear();
-        nameField.sendKeys(firstName);
+        $(By.xpath("//*[@id='firstName']")).setValue(firstName);
     }
     @Step("Deleting one letter")
     public void clearFirstName(){
-        WebElement nameField = firstNameLocator();
-        nameField.sendKeys(Keys.BACK_SPACE);
+        $(By.xpath("//*[@id='firstName']")).sendKeys(Keys.BACK_SPACE);
     }
     @Step("Entering of the last name")
     public void setLastName(String lastName){
-        WebElement lastNameField = lastNameLocator();
-        lastNameField.clear();
-        lastNameField.sendKeys(lastName);
+        $(By.xpath("//*[@id='lastName']")).setValue(lastName);
     }
     @Step("Deleting one letter")
     public void clearLastName(){
-        WebElement nameField = lastNameLocator();
-        nameField.sendKeys(Keys.BACK_SPACE);
+        $(By.xpath("//*[@id='lastName']")).sendKeys(BACK_SPACE);
     }
     @Step("Getting one of the vet specialties")
     public void specTypeList(int itemSelect){
@@ -48,15 +42,14 @@ public class NewVeterPage {
     }
     @Step("Getting validation error text")
     public String helpBlockGetText(String name){
-        SelenideElement actualError = $(By.xpath("//*[@id='" + name + "']/following-sibling::span[2]"));
-        return actualError.getText();
+        return $(By.xpath("//*[@id='" + name + "']/following-sibling::span[2]")).getText();
     }
-    @Step("Getting first name")
-    private WebElement firstNameLocator(){
-        return $(By.xpath("//*[@id='firstName']"));
-    }
-    @Step("Getting last name")
-    private WebElement lastNameLocator(){
-        return $(By.xpath("//*[@id='lastName']"));
-    }
+//    @Step("Getting first name")
+//    private SelenideElement firstNameLocator(){
+//        return $(By.xpath("//*[@id='firstName']"));
+//    }
+//    @Step("Getting last name")
+//    private WebElement lastNameLocator(){
+//        return $(By.xpath("//*[@id='lastName']"));
+//    }
 }
