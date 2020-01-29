@@ -7,10 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Selenide" />
+        <module name="Selenide_Example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Selenide" target="1.8" />
+      <module name="Selenide_Example" target="1.8" />
+      <module name="untitled" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

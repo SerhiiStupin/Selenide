@@ -1,12 +1,15 @@
 # Compiled class file
 *.class
+*.iml
+.allure
+*.xml
+*.idea
 
 # Log file
 *.log
 
 # BlueJ files
 *.ctxt
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -22,8 +25,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .idea/
+target/
 build/
-*.iml
+.allure/
+allure-results/
 
-# Default ignored files
-/workspace.xml
