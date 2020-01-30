@@ -12,13 +12,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Epic("PetClinic")
 @Feature("Veterinarians")
 public class VetTests {
+    ApiTestPreconditions apiPrec = new ApiTestPreconditions();
 
     @Test(description = "Creating a new vet")
     @Story("Creating a new vet")
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("vets.com")
     public void addVetTest() {
-        ApiTestPreconditions apiPrec = new ApiTestPreconditions();
         apiPrec.setUp();
         apiPrec.vetCreationPrec();
         VeterinariansPage veterinariansPage = new VeterinariansPage();

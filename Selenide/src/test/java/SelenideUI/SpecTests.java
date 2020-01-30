@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Epic("Petclinic")
 @Feature("Specialties")
 public class SpecTests {
+    ApiTestPreconditions apiPrec = new ApiTestPreconditions();
 
     @Test(description = "Checking Spec page")
     @Story("Checking the URL")
@@ -29,7 +30,6 @@ public class SpecTests {
     @TmsLink("specialty.com")
     public void specialtyAddingTest() {
         String spec = "lor";
-        ApiTestPreconditions apiPrec = new ApiTestPreconditions();
         apiPrec.setUp();
         apiPrec.specCreationPrec();
         SpecPage specPage = new SpecPage();

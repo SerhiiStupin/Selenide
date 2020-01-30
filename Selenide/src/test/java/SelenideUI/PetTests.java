@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Epic("Petclinic")
 @Feature("PetTypes")
 public class PetTests {
+    ApiTestPreconditions apiPrec = new ApiTestPreconditions();
 
     @Test(description = "Checking Pets page")
     @Story("Checking the URL")
@@ -29,10 +30,8 @@ public class PetTests {
     @TmsLink("pettype.com")
     public void petTypeAddTest() {
         String name = "Duck";
-        ApiTestPreconditions apiPrec = new ApiTestPreconditions();
         apiPrec.setUp();
         apiPrec.petTypeadding();
-
         PetTypePage petTypePage = new PetTypePage();
         petTypePage.openPage();
         assertThat(petTypePage.typeList()).isEqualTo(name);

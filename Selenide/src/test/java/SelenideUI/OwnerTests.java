@@ -14,6 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OwnerTests {
+    ApiTestPreconditions apiPrec = new ApiTestPreconditions();
 
     @Test(description = "Checking Owners page")
     @Story("Checking the URL")
@@ -30,13 +31,12 @@ public class OwnerTests {
     @Severity(SeverityLevel.BLOCKER)
     @TmsLink("owners.com")
     public void addNewOwnerTestWithApi() {
+        apiPrec.setUp();
         OwnersPage ownersPage = new OwnersPage();
         ownersPage.openPage();
         ElementsCollection before = ownersPage.ownersList();
         int sizeBefore = before.size();
         ownersPage.assertUrl(url());
-        ApiTestPreconditions apiPrec = new ApiTestPreconditions();
-        apiPrec.setUp();
         apiPrec.addOwner();
         ownersPage.openPage();
         refresh();
@@ -93,7 +93,6 @@ public class OwnerTests {
     @TmsLink("owners.com")
     public void addressValidationTest() {
         String address = "Address is required";
-
         NewOwnerPage newOwnerPage = new NewOwnerPage();
         newOwnerPage.openPage()
                 .setAddress("*");
