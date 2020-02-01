@@ -1,4 +1,5 @@
-package API;
+package API.Objects;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -8,7 +9,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "id",
         "name"
 })
-public class Type {
+public class Specialty {
+
     @JsonProperty("id")
     private Integer id;
     @JsonProperty("name")
@@ -36,7 +38,7 @@ public class Type {
 
     @Override
     public String toString() {
-        return "Type{" +
+        return "Specialty{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

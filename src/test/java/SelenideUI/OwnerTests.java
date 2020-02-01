@@ -1,8 +1,8 @@
 package SelenideUI;
 
 import API.ApiTestPreconditions;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
+import SelenideUI.Pages.NewOwnerPage;
+import SelenideUI.Pages.OwnersPage;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.filter;
 
 public class OwnerTests {
     ApiTestPreconditions apiPrec = new ApiTestPreconditions();
@@ -34,14 +35,15 @@ public class OwnerTests {
         apiPrec.setUp();
         OwnersPage ownersPage = new OwnersPage();
         ownersPage.openPage();
-        ElementsCollection before = ownersPage.ownersList();
-        int sizeBefore = before.size();
+        int before = ownersPage.ownersList().size();
         ownersPage.assertUrl(url());
         apiPrec.addOwner();
         ownersPage.openPage();
         refresh();
-        ElementsCollection after = ownersPage.ownersList();
-        assertThat(sizeBefore+1).isEqualTo(after.size());
+        int after = ownersPage.ownersList().size();
+        assertThat(before + 1).isEqualTo(after);
+
+
         apiPrec.deleteOwner();
     }
 
@@ -52,9 +54,8 @@ public class OwnerTests {
     public void backButtonTest() {
         NewOwnerPage newOwnerPage = new NewOwnerPage();
         newOwnerPage.openPage()
-                .clickAddOwnerButton()
+                .clickBackButton()
                 .assertUrl(url());
-        $(newOwnerPage.submitBtn).shouldBe(Condition.disabled);
     }
 
     @Test(description = "FirstName field validation")

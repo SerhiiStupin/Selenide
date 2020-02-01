@@ -1,5 +1,7 @@
-package SelenideUI;
+package SelenideUI.Pages;
 
+import SelenideUI.Objects.Veterinarian;
+import SelenideUI.TestBase;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -11,9 +13,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.testng.Assert.assertEquals;
 
-public class VeterinariansPage{
-    static {
-        Configuration.baseUrl = "http://localhost:8000/petclinic";
+public class VeterinariansPage extends TestBase {
+    TestBase testBase = new TestBase();
+
+    public TestBase getTestBase() {
+        return testBase;
     }
     @Step("Checking the current URL")
     public void assertUrl(String url){

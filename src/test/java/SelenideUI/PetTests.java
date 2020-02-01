@@ -1,6 +1,7 @@
 package SelenideUI;
 
 import API.ApiTestPreconditions;
+import SelenideUI.Pages.PetTypePage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.*;
@@ -44,8 +45,7 @@ public class PetTests {
     public void addingEmptyPet(){
         PetTypePage petTypePage = new PetTypePage();
         petTypePage.openPage();
-        ElementsCollection before = petTypePage.petsList();
-        int beforeSize = before.size();
+        int beforeSize = petTypePage.petsList().size();
         petTypePage.addBtn();
         petTypePage.saveBtn();
         ElementsCollection after = petTypePage.petsList();

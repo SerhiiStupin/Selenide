@@ -1,13 +1,19 @@
-package SelenideUI;
+package SelenideUI.Pages;
 
-import com.codeborne.selenide.SelenideElement;
+import SelenideUI.Objects.Veterinarian;
+import SelenideUI.TestBase;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Selenide.$;
 import static org.openqa.selenium.Keys.BACK_SPACE;
 
-public class NewVeterPage {
+public class NewVeterPage extends TestBase {
+    TestBase testBase = new TestBase();
+    public TestBase getTestBase() {
+        return testBase;
+    }
+
     @Step("Setting vet's data")
     public void createVet(Veterinarian veterinarian) {
         setFirstName(veterinarian.getFirstName());
@@ -44,12 +50,4 @@ public class NewVeterPage {
     public String helpBlockGetText(String name){
         return $(By.xpath("//*[@id='" + name + "']/following-sibling::span[2]")).getText();
     }
-//    @Step("Getting first name")
-//    private SelenideElement firstNameLocator(){
-//        return $(By.xpath("//*[@id='firstName']"));
-//    }
-//    @Step("Getting last name")
-//    private WebElement lastNameLocator(){
-//        return $(By.xpath("//*[@id='lastName']"));
-//    }
 }

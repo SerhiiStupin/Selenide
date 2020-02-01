@@ -1,5 +1,8 @@
 package API;
 
+import API.Objects.Owner;
+import API.Objects.Pet;
+import API.Objects.Type;
 import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -12,7 +15,7 @@ import static org.hamcrest.Matchers.hasItems;
 @Epic("PetClinic")
 @Feature("Pets API")
 public class PetsTests extends ApiTestPreconditions{
-    Owner owner;
+    API.Objects.Owner owner;
     Type type;
     Pet pet;
 
@@ -49,7 +52,7 @@ public class PetsTests extends ApiTestPreconditions{
     @TmsLink("pets.com")
     @Issue("Bug-20")
     public void addOwnerAndPets(){
-        owner = new Owner();
+        owner = new API.Objects.Owner();
         owner.setFirstName("Pavlo");
         owner.setLastName("Zibrov");
         owner.setAddress("Khreschatik");

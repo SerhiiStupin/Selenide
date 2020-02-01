@@ -1,5 +1,6 @@
 package API;
 
+import API.Objects.Type;
 import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

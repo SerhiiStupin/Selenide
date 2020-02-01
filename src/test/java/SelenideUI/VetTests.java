@@ -1,6 +1,8 @@
 package SelenideUI;
 
 import API.ApiTestPreconditions;
+import SelenideUI.Pages.NewVeterPage;
+import SelenideUI.Pages.VeterinariansPage;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
@@ -33,13 +35,12 @@ public class VetTests {
     public void addEmptyVet(){
         VeterinariansPage veterinariansPage = new VeterinariansPage();
         veterinariansPage.openPage();
-        ElementsCollection before = veterinariansPage.veterinariansList();
-        int beforeSize = before.size();
+        int beforeSize = veterinariansPage.veterinariansList().size();
         NewVeterPage newVeterPage = veterinariansPage.clickAddBtn();
         veterinariansPage = newVeterPage.saveVetButtonClick();
         veterinariansPage.openPage();
-        ElementsCollection after = veterinariansPage.veterinariansList();
-        assertThat(beforeSize).isEqualTo(after.size());
+        int after = veterinariansPage.veterinariansList().size();
+        assertThat(beforeSize).isEqualTo(after);
     }
 
     @Test(description = "FirstName field validation")

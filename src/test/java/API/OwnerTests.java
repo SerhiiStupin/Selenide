@@ -1,5 +1,6 @@
 package API;
 
+import API.Objects.Owner;
 import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -12,7 +13,7 @@ import static org.hamcrest.Matchers.*;
 @Epic("PetClinic")
 @Feature("Owner API")
 public class OwnerTests extends ApiTestPreconditions{
-    Owner owner;
+    API.Objects.Owner owner;
 
     @BeforeMethod
     @Step("Creating of the owner before all tests")
@@ -84,7 +85,7 @@ public class OwnerTests extends ApiTestPreconditions{
     @TmsLink("owners.com")
     @Issue("Bug-1")
     public void ownerCreationTest() {
-        owner = new Owner();
+        owner = new API.Objects.Owner();
         owner.setId(0);
         owner.setFirstName("Termi");
         owner.setLastName("Nator");
@@ -101,7 +102,7 @@ public class OwnerTests extends ApiTestPreconditions{
                 .body("id", notNullValue())
                 .body("firstName", equalTo(owner.getFirstName()))
                 .extract().body()
-                .as(Owner.class);
+                .as(API.Objects.Owner.class);
     }
     @Test(description = "Error while creating a new owner")
     @Severity(SeverityLevel.TRIVIAL)

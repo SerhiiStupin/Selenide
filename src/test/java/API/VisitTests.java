@@ -1,5 +1,9 @@
 package API;
 
+import API.Objects.Owner;
+import API.Objects.Pet;
+import API.Objects.Type;
+import API.Objects.Visit;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;

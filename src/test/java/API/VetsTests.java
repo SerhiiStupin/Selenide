@@ -1,5 +1,7 @@
 package API;
 
+import API.Objects.Specialty;
+import API.Objects.Vets;
 import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

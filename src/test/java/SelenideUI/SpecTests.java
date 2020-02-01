@@ -1,6 +1,7 @@
 package SelenideUI;
 
 import API.ApiTestPreconditions;
+import SelenideUI.Pages.SpecPage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.*;
@@ -45,12 +46,11 @@ public class SpecTests {
     public void addingEmptySpec(){
         SpecPage specPage = new SpecPage();
         specPage.openPage();
-        ElementsCollection before = specPage.specialists();
-        int beforeSize = before.size();
+        int beforeSize = specPage.specialists().size();
         specPage.addBtn();
         specPage.saveBtn();
-        ElementsCollection after = specPage.specialists();
-        assertThat(beforeSize).isEqualTo(after.size());
+        int after = specPage.specialists().size();
+        assertThat(beforeSize).isEqualTo(after);
     }
 
     @Test(description = "Delete the new Spec")

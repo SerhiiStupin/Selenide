@@ -1,6 +1,6 @@
-package SelenideUI;
+package SelenideUI.Pages;
 
-import com.codeborne.selenide.Configuration;
+import SelenideUI.TestBase;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
@@ -14,9 +14,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.testng.Assert.assertEquals;
 
-public class OwnersPage {
-    static {
-        Configuration.baseUrl = "http://localhost:8000/petclinic";
+public class OwnersPage extends TestBase {
+    TestBase testBase = new TestBase();
+
+    public TestBase getTestBase() {
+        return testBase;
     }
     @Step("Checking the current URL")
     public void assertUrl(String url){
@@ -25,7 +27,6 @@ public class OwnersPage {
     }
     @Step("Search of the added owner name")
     public WebElement addedOwnerSearch() {
-
         return $(By.xpath("//*[text()='John Snow']"));
     }
 
@@ -57,9 +58,9 @@ public class OwnersPage {
     }
 
     @Step("Click on owner's name")
-    public OwnerInformationPage openOwnerInfo(String fullName) {
+    public NewOwnerPage openOwnerInfo(String fullName) {
         $(By.xpath("//a[text()='"+fullName+"']")).click();
-        return new OwnerInformationPage();
+        return new NewOwnerPage();
     }
     @Step("New owner button click")
     public void newOwner(){

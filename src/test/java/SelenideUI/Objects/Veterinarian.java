@@ -1,4 +1,4 @@
-package SelenideUI;
+package SelenideUI.Objects;
 
 import java.util.Objects;
 
