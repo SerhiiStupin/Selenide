@@ -22,6 +22,7 @@ import java.net.URI;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RemoteWeb1 {
@@ -47,22 +48,14 @@ public class RemoteWeb1 {
 //                capabilities
 //        );
     }
-    @Test(description = "LastName field validation")
-    @Story("LastName field validation")
-    @Severity(SeverityLevel.TRIVIAL)
+    @Test(description = "Returning to the home page")
+    @Severity(SeverityLevel.MINOR)
+    @Story("Returning to the home page")
     @TmsLink("vets.com")
-    public void lastNameValidationTests(){
-        String requiredLast = "Last name is required";
-        String lastName = "lastName";
-        String lastNamelongValidation = "Last name must be at least 2 characters long";
+    public void homeButtonTest() {
         VeterinariansPage veterinariansPage = new VeterinariansPage();
         veterinariansPage.openPage()
-                .clickAddBtn()
-                .setLastName("=");
-        NewVeterPage newVeterPage = new NewVeterPage();
-        assertThat(newVeterPage.helpBlockGetText(lastName)).isEqualTo(lastNamelongValidation);
-        newVeterPage.clearLastName();
-        assertThat(newVeterPage.helpBlockGetText(lastName)).isEqualTo(requiredLast);
+                .assertUrl(url());
     }
 //    @Test
 //    public void addNewOwnerTest() {
