@@ -48,7 +48,9 @@ public class RemoteWeb1 {
                 URI.create("http://localhost:4444/wd/hub").toURL(),
                 capabilities
         );
-        driver.manage().window().setSize(new Dimension(1024, 768));
+        Dimension d = new Dimension(1382,744);
+//Resize the current window to the given dimension
+        driver.manage().window().setSize(d);
     }
 //    @Test(description = "Returning to the home page")
 //    @Severity(SeverityLevel.MINOR)
