@@ -35,10 +35,10 @@ public class RemoteWeb1 {
         options.addArguments("--disable-extensions");
 //        capabilities.setCapability("enableVideo", false);
 //
-//        RemoteWebDriver driver = new RemoteWebDriver(
-//                URI.create("http://localhost:4444/wd/hub").toURL(),
-//                capabilities
-//        );
+        RemoteWebDriver driver = new RemoteWebDriver(
+                URI.create("http://localhost:4444/wd/hub").toURL(),
+                capabilities
+        );
     }
     @Test
     public void addNewOwnerTest() {

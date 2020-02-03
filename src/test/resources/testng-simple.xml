@@ -4,7 +4,7 @@
 
     <test name="OwnerTests" >
         <classes>
-            <class name="SelenideUI.VetTestExample" />
+            <class name="RemoteWeb.RemoteWeb1" />
         </classes>
     </test>
 
