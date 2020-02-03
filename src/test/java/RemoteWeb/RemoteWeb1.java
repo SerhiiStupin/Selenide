@@ -1,8 +1,11 @@
+package RemoteWeb;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeClass;
@@ -14,8 +17,7 @@ import java.net.URI;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class RemoteWeb {
-    WebDriver driver;
+public class RemoteWeb1 {
     @BeforeClass
     public void setUp() throws MalformedURLException {
         //WebDriverManager.chromedriver().setup();
@@ -25,6 +27,10 @@ public class RemoteWeb {
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("79.0");
         capabilities.setCapability("enableVNC", true);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 //        capabilities.setCapability("enableVideo", false);
 //
 //        RemoteWebDriver driver = new RemoteWebDriver(
