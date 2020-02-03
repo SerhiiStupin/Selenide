@@ -31,6 +31,8 @@ public class RemoteWeb1 {
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
 //        capabilities.setCapability("enableVideo", false);
 //
 //        RemoteWebDriver driver = new RemoteWebDriver(
