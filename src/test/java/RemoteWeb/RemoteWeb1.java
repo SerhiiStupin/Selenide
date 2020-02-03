@@ -48,15 +48,15 @@ public class RemoteWeb1 {
 //                capabilities
 //        );
     }
-    @Test(description = "Returning to the home page")
-    @Severity(SeverityLevel.MINOR)
-    @Story("Returning to the home page")
-    @TmsLink("vets.com")
-    public void homeButtonTest() {
-        VeterinariansPage veterinariansPage = new VeterinariansPage();
-        veterinariansPage.openPage()
-                .assertUrl(url());
-    }
+//    @Test(description = "Returning to the home page")
+//    @Severity(SeverityLevel.MINOR)
+//    @Story("Returning to the home page")
+//    @TmsLink("vets.com")
+//    public void homeButtonTest() {
+//        VeterinariansPage veterinariansPage = new VeterinariansPage();
+//        veterinariansPage.openPage()
+//                .assertUrl(url());
+//    }
 //    @Test
 //    public void addNewOwnerTest() {
 ////        driver.get("http://localhost:8000/petclinic/owners/add");
