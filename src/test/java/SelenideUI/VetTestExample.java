@@ -11,8 +11,7 @@ import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class VetTestExample extends RemoteWeb1 {
-    RemoteWeb1 remoteWeb1 = new RemoteWeb1();
+public class VetTestExample {
     @Test(description = "LastName field validation")
     @Story("LastName field validation")
     @Severity(SeverityLevel.TRIVIAL)

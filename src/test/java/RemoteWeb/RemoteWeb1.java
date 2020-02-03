@@ -44,13 +44,13 @@ public class RemoteWeb1 {
         options.addArguments("--disable-extensions");
 //        capabilities.setCapability("enableVideo", false);
 //
-        RemoteWebDriver driver = new RemoteWebDriver(
-                URI.create("http://localhost:4444/wd/hub").toURL(),
-                capabilities
-        );
-        Dimension d = new Dimension(1382,744);
-//Resize the current window to the given dimension
-        driver.manage().window().setSize(d);
+//        RemoteWebDriver driver = new RemoteWebDriver(
+//                URI.create("http://localhost:4444/wd/hub").toURL(),
+//                capabilities
+//        );
+//        Dimension d = new Dimension(1382,744);
+////Resize the current window to the given dimension
+//        driver.manage().window().setSize(d);
     }
 //    @Test(description = "Returning to the home page")
 //    @Severity(SeverityLevel.MINOR)
