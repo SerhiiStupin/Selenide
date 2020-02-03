@@ -10,6 +10,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import io.qameta.allure.TmsLink;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -43,10 +44,11 @@ public class RemoteWeb1 {
         options.addArguments("--disable-extensions");
 //        capabilities.setCapability("enableVideo", false);
 //
-//        RemoteWebDriver driver = new RemoteWebDriver(
-//                URI.create("http://localhost:4444/wd/hub").toURL(),
-//                capabilities
-//        );
+        RemoteWebDriver driver = new RemoteWebDriver(
+                URI.create("http://localhost:4444/wd/hub").toURL(),
+                capabilities
+        );
+        driver.manage().window().setSize(new Dimension(1024, 768));
     }
 //    @Test(description = "Returning to the home page")
 //    @Severity(SeverityLevel.MINOR)
