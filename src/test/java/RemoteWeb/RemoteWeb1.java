@@ -30,7 +30,7 @@ public class RemoteWeb1 {
     @BeforeClass
     public void setUp() throws MalformedURLException {
         //WebDriverManager.chromedriver().setup();
-        Configuration.remote = "http://192.168.0.106:4444/wd/hub";
+        Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.browserCapabilities = new DesiredCapabilities();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
@@ -45,7 +45,7 @@ public class RemoteWeb1 {
 //        capabilities.setCapability("enableVideo", false);
 //
         RemoteWebDriver driver = new RemoteWebDriver(
-                URI.create("http://192.168.0.106:4444/wd/hub").toURL(),
+                URI.create("http://localhost:4444/wd/hub").toURL(),
                 capabilities
         );
         Dimension d = new Dimension(1382,744);
