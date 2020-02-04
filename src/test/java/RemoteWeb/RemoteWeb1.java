@@ -34,7 +34,7 @@ public class RemoteWeb1 {
         Configuration.browserCapabilities = new DesiredCapabilities();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        capabilities.setVersion("79.0");
+        //capabilities.setVersion("79.0");
         capabilities.setCapability("enableVNC", true);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
