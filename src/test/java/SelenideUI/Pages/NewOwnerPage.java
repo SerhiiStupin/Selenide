@@ -84,6 +84,12 @@ public class NewOwnerPage extends TestBase {
         return $(By.xpath("//*[@class='help-block']")).getText();
     }
 
+    @Step("Getting Title")
+    public String getTitle() {
+        String h2 = $(By.cssSelector("h2")).getText();
+        return h2;
+    }
+
 //    String submitBtn = "[type='submit']";
 //    private String firstNameLocator = "firstName";
 //    private String lastNameLocator = "lastName";

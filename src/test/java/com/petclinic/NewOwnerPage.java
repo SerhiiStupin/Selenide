@@ -2,6 +2,7 @@ package com.petclinic;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -26,7 +27,7 @@ public class NewOwnerPage {
         $(By.id("telephone")).setValue(name);
         return this;
     }
-     public void cliackAddBtn(){
+    public void cliackAddBtn(){
             $("[type='submit']").shouldBe(Condition.enabled).click();
     }
 }
