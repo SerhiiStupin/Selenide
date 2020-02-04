@@ -2,6 +2,7 @@ package RemoteWeb;
 
 import SelenideUI.Pages.NewVeterPage;
 import SelenideUI.Pages.VeterinariansPage;
+import SelenideUI.TestBase;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -27,7 +28,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RemoteWeb1 {
+public class RemoteWeb1 extends TestBase {
+    TestBase testBase = new TestBase();
         private WebDriver driver;
 
         @BeforeClass
@@ -60,6 +62,25 @@ public class RemoteWeb1 {
             assertThat(text).isEqualTo("New Owner");
             sleep(10_000);
         }
+        @Test(description = "LastName field validation")
+    @Story("LastName field validation")
+    @Severity(SeverityLevel.TRIVIAL)
+    @TmsLink("vets.com")
+    public void lastNameValidationTests(){
+       // WebDriverManager.chromedriver().setup();
+        String requiredLast = "Last name is required";
+        String lastName = "lastName";
+        String lastNamelongValidation = "Last name must be at least 2 characters long";
+        VeterinariansPage veterinariansPage = new VeterinariansPage();
+        veterinariansPage.openPage()
+                .assertUrl(url());
+        veterinariansPage.clickAddBtn()
+                .setLastName("=");
+        NewVeterPage newVeterPage = new NewVeterPage();
+        assertThat(newVeterPage.helpBlockGetText(lastName)).isEqualTo(lastNamelongValidation);
+        newVeterPage.clearLastName();
+        assertThat(newVeterPage.helpBlockGetText(lastName)).isEqualTo(requiredLast);
+    }
 }
 //        //WebDriverManager.chromedriver().setup();
 //        Configuration.remote = "http://localhost:4444/wd/hub";

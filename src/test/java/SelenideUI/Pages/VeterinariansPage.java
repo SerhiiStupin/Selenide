@@ -26,7 +26,7 @@ public class VeterinariansPage extends TestBase {
     }
     @Step("Opening Owners page")
     public VeterinariansPage openPage() {
-        open("http://localhost:8000/petclinic/vets");
+        open("/vets");
         return this;
     }
 
