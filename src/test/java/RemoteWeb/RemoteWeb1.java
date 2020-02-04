@@ -28,18 +28,18 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RemoteWeb1 extends TestBase {
+public class RemoteWeb1 {
     TestBase testBase = new TestBase();
         private WebDriver driver;
 
         @BeforeClass
         public void setUp () throws MalformedURLException {
-//        WebDriverManager.chromedriver().setup();
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setBrowserName("chrome");
-//        capabilities.setVersion("78.0");
-            capabilities.setCapability("enableVNC", true);
-//        capabilities.setCapability("enableVideo", false);
+                Configuration.baseUrl = "http://192.168.0.106:8000/petclinic";
+                Configuration.remote = "http://localhost:4444/wd/hub";
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setBrowserName("chrome");
+                capabilities.setCapability("enableVNC", true);
+                Configuration.browserCapabilities = capabilities;
 
             driver = new RemoteWebDriver(
                     URI.create("http://localhost:4444/wd/hub").toURL(),
