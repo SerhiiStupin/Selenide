@@ -52,7 +52,7 @@ public class RemoteWeb1 {
 
         @Test
         public void addNewOwnerTest () throws InterruptedException {
-            driver.get("http://139.59.149.247:8000/petclinic/owners/add");
+            driver.get("http://192.168.0.106:8000/petclinic/owners/add");
             sleep(10_000);
 
             WebElement h2 = driver.findElement(By.cssSelector("h2"));
