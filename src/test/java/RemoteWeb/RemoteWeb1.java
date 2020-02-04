@@ -81,6 +81,20 @@ public class RemoteWeb1 {
         newVeterPage.clearLastName();
         assertThat(newVeterPage.helpBlockGetText(lastName)).isEqualTo(requiredLast);
     }
+    @Test(description = "Adding an empty vet")
+    @Severity(SeverityLevel.MINOR)
+    @Story("Adding pet without name and vet")
+    @TmsLink("vets.com")
+    public void addEmptyVet(){
+        VeterinariansPage veterinariansPage = new VeterinariansPage();
+        veterinariansPage.openPage();
+        int beforeSize = veterinariansPage.veterinariansList().size();
+        NewVeterPage newVeterPage = veterinariansPage.clickAddBtn();
+        veterinariansPage = newVeterPage.saveVetButtonClick();
+        veterinariansPage.openPage();
+        int after = veterinariansPage.veterinariansList().size();
+        assertThat(beforeSize).isEqualTo(after);
+    }
 }
 //        //WebDriverManager.chromedriver().setup();
 //        Configuration.remote = "http://localhost:4444/wd/hub";
