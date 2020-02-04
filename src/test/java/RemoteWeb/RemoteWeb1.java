@@ -35,13 +35,13 @@ public class RemoteWeb1 {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("79.0");
-       // capabilities.setCapability("enableVNC", true);
-       // ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--disable-gpu");
-//        options.addArguments("--disable-extensions");
+        capabilities.setCapability("enableVNC", true);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
 //        capabilities.setCapability("enableVideo", false);
 //
         RemoteWebDriver driver = new RemoteWebDriver(
