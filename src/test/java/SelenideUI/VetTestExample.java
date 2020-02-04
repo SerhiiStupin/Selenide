@@ -3,6 +3,7 @@ package SelenideUI;
 import RemoteWeb.RemoteWeb1;
 import SelenideUI.Pages.NewVeterPage;
 import SelenideUI.Pages.VeterinariansPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
