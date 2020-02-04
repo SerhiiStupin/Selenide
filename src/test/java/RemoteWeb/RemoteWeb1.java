@@ -33,8 +33,8 @@ public class RemoteWeb1 {
         Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.browserCapabilities = new DesiredCapabilities();
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("firefox");
-        capabilities.setVersion("71.0");
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("79.0");
        // capabilities.setCapability("enableVNC", true);
        // ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--headless");
